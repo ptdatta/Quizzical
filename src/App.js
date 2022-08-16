@@ -1,23 +1,42 @@
 import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import Question from './question';
+import {nanoid} from 'nanoid';
 
 function App() {
+  const [click,setClick]=React.useState(false)
+  const [qData,setQData]=React.useState([])
+  React.useEffect(() => {
+    async function getData() {
+      const res = await fetch("https://opentdb.com/api.php?amount=10&type=multiple")
+      const data = await res.json()
+      setQData(data.results)
+    }
+    getData()
+  }, []) 
+
+  const questionEle=qData.map(qu=>{
+    return (
+      <Question
+         id={nanoid()}
+         title={qu.question}
+         cans={qu.correct_answer}
+         ians={qu.incorrect_answers}
+         click={click}
+      />
+    )
+  })
+   
+  
+  // function change(){
+  //   setClick(true)
+  // }
+  // console.log(options)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {questionEle}
+      {/* <button onClick={change}>Check answers</button> */}
     </div>
   );
 }
