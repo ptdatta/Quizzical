@@ -1,6 +1,6 @@
 # Quizzical
 
-This is a quiz app which fetch 10 random question from the open travia database via API written in JavaScript on React. The questions are multiple choices. You can select the options of the questions and click on **Check Answer** and it will give you how much you have scored out of 10. Then there was a **Play Again** button by which you can play the quiz again.
+This is a quiz app which fetch 10 random question from the open travia database via API written in **JavaScript** on **React**. The questions are multiple choices. You can select the options of the questions and click on **Check Answer** and it will give you how much you have scored out of 10. Then there was a **Play Again** button by which you can play the quiz again.
 
 ![Screenshot (745)](https://user-images.githubusercontent.com/94271200/187081023-863856ea-c518-4f73-a1e2-8b180d7356f1.png)
 
